@@ -1,0 +1,6 @@
+.comment
+  %p= comment.comment
+  %p= comment.user.email
+  - if current_user.id == comment.user_id
+    = link_to 'Edit Reply', edit_post_comment_path(comment.post, comment) 
+    = link_to 'Delete Reply', [comment.post, comment], data: { turbo_method: :delete, turbo_confirm: 'Are you shure you want to delete?' }
