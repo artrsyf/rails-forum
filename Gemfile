@@ -53,6 +53,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'devise', '~> 4.8', '>= 4.8.1'
   gem 'haml', '~> 6.0', '>= 6.0.10'
+  gem 'letter_opener', '~> 1.7'
   gem 'simple_form', '~> 5.1'
 end
 
