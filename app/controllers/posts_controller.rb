@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index] # :authenticate_user! usage for all actions wrote in base controller *
+  before_action :user_abilities, only: [:show, :edit, :update, :destroy]
 
   def index
     @post = Post.all.order("created_at DESC")
@@ -51,5 +52,9 @@ class PostsController < ApplicationController
 
   def authenticate_user!
     redirect_to user_session_path unless current_user
+  end
+
+  def user_abilities
+    redirect_to root_path if @post.user_id != current_user.id
   end
 end
