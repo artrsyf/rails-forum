@@ -9,3 +9,13 @@ eagerLoadControllersFrom("controllers", application)
 // Lazy load controllers as they appear in the DOM (remember not to preload controllers in import map!)
 // import { lazyLoadControllersFrom } from "@hotwired/stimulus-loading"
 // lazyLoadControllersFrom("controllers", application)
+
+$('document').ready(function(){
+    // var timer = setInterval(showNotifications, 5000)
+    // function showNotifications(){
+    //     $('.notice').hide()
+    //     $('.alert').hide()
+    // }
+    $('.notice').hide()
+    $('.alert').hide()
+})

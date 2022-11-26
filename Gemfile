@@ -53,7 +53,10 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'devise', '~> 4.8', '>= 4.8.1'
   gem 'haml', '~> 6.0', '>= 6.0.10'
+  gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
   gem 'letter_opener', '~> 1.7'
+  gem 'rails-ujs', '~> 5.1.0.beta1'
+  gem 'turbolinks', '~> 2.5', '>= 2.5.3'
   gem 'simple_form', '~> 5.1'
 end
 

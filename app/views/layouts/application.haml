@@ -10,19 +10,26 @@
     = javascript_importmap_tags
 
   %body
-    %nav
-      #logo
-        %p Rails Forum
-      #buttons
-        =link_to 'New Post', new_post_path if (controller_name != 'sessions' && action_name != 'new') # ? *
-    .wrapper
-      %p.notice= notice
-      %p.alert= alert
+    %header.main_header
+      %nav
+        #logo
+          #logo_icon
+            = show_svg('logo.svg')
+          #logo_name
+            Rails forum
+        #buttons
+          =link_to '<button class = "nav_button" id = new_post>New Post</button>'.html_safe, new_post_path if (controller_name != 'sessions' && action_name != 'new' && user_signed_in?) # ? *
+          -if user_signed_in?
+            =link_to '<button class = "nav_button" id = sign_out>Sign out</button>'.html_safe, destroy_user_session_path, data: { turbo_method: :delete }
+          -else
+            -#some block
+            =link_to '<button class = "nav_button" id = sign_in>Sign in</button>'.html_safe, new_user_session_path if (controller_name != 'sessions' && action_name != 'new') # ? *
+    .message_field
+      %div.notice= notice
+      %div.alert= alert
     -# tabs are really important in haml *
-    -if user_signed_in?
-      = link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete }
-    -else
-      -#some block
-      =link_to 'Sign in', new_user_session_path if (controller_name != 'sessions' && action_name != 'new') # ? *
-    .wrapper
-      = yield 
+    
+    .global_wrapper
+      = yield
+    %footer.main_footer
+    
