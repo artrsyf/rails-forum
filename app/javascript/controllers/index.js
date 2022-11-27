@@ -10,12 +10,12 @@ eagerLoadControllersFrom("controllers", application)
 // import { lazyLoadControllersFrom } from "@hotwired/stimulus-loading"
 // lazyLoadControllersFrom("controllers", application)
 
+
+// precompile the problem is solved by deleting all tmp folder, clearing public/assets and restarting text editor
 $('document').ready(function(){
-    // var timer = setInterval(showNotifications, 5000)
-    // function showNotifications(){
-    //     $('.notice').hide()
-    //     $('.alert').hide()
-    // }
-    $('.notice').hide()
-    $('.alert').hide()
+    var timer = setTimeout(showNotifications, 7000)
+    function showNotifications(){
+        $('.notice').hide()
+        $('.alert').hide()
+    }
 })

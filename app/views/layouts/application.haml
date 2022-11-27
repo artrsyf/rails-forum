@@ -5,7 +5,8 @@
     %meta{name: "viewport", content: "width=device-width,initial-scale=1"}
     = csrf_meta_tags
     = csp_meta_tag
-
+    -# The only way to add jQuery
+    = javascript_include_tag "jquery-3.6.1.min"
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
 
@@ -13,10 +14,8 @@
     %header.main_header
       %nav
         #logo
-          #logo_icon
-            = show_svg('logo.svg')
-          #logo_name
-            Rails forum
+          #logo_icon= link_to show_svg('logo.svg'), root_path
+          #logo_name= link_to 'Rails Forum', root_path
         #buttons
           =link_to '<button class = "nav_button" id = new_post>New Post</button>'.html_safe, new_post_path if (controller_name != 'sessions' && action_name != 'new' && user_signed_in?) # ? *
           -if user_signed_in?
