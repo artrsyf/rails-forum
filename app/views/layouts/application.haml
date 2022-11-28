@@ -11,24 +11,25 @@
     = javascript_importmap_tags
 
   %body
-    %header.main_header
-      %nav
-        #logo
-          #logo_icon= link_to show_svg('logo.svg'), root_path
-          #logo_name= link_to 'Rails Forum', root_path
-        #buttons
-          =link_to '<button class = "nav_button" id = new_post>New Post</button>'.html_safe, new_post_path if (controller_name != 'sessions' && action_name != 'new' && user_signed_in?) # ? *
-          -if user_signed_in?
-            =link_to '<button class = "nav_button" id = sign_out>Sign out</button>'.html_safe, destroy_user_session_path, data: { turbo_method: :delete }
-          -else
-            -#some block
-            =link_to '<button class = "nav_button" id = sign_in>Sign in</button>'.html_safe, new_user_session_path if (controller_name != 'sessions' && action_name != 'new') # ? *
-    .message_field
-      %div.notice= notice
-      %div.alert= alert
-    -# tabs are really important in haml *
-    
-    .global_wrapper
+    %div.global_wrapper
+      %header.main_header
+        %nav
+          #logo
+            #logo_icon= link_to show_svg('logo.svg'), root_path
+            #logo_name= link_to 'Rails Forum', root_path
+          #buttons
+            =link_to '<button class = "nav_button" id = new_post>New Post</button>'.html_safe, new_post_path if (controller_name != 'sessions' && action_name != 'new' && user_signed_in?) # ? *
+            -if user_signed_in?
+              =link_to '<button class = "nav_button" id = sign_out>Sign out</button>'.html_safe, destroy_user_session_path, data: { turbo_method: :delete }
+            -else
+              -#some block
+              =link_to '<button class = "nav_button" id = sign_in>Sign in</button>'.html_safe, new_user_session_path if (controller_name != 'sessions' && action_name != 'new') # ? *
+      %div.main_header.header_clone
+      .error_field
+      .message_field
+        %div.notice= notice
+        %div.alert= alert
+      -# tabs are really important in haml *
+      
       = yield
-    %footer.main_footer
     

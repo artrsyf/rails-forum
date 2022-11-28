@@ -1,11 +1,12 @@
 //%div{id: 'main_page_name'} Posts
-#posts_wrapper
-  - @post.each do |post|
-    .post
-      %h2= link_to post.title, post
-      %p= post.content
-      %p
-        Published at
-        =time_ago_in_words(post.created_at)
-        by
-        =post.user.email
+.main
+  #posts_wrapper
+    - @post.each do |post|
+      .post
+        .post_info
+          Published at
+          =time_ago_in_words(post.created_at)
+          by
+          =post.user.email
+        %h2= link_to post.title, post
+        %p= post.content
