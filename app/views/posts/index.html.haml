@@ -2,11 +2,11 @@
 .main
   #posts_wrapper
     - @post.each do |post|
-      .post
+      = link_to post, class: "post" do
         .post_info
           Published at
-          =time_ago_in_words(post.created_at)
+          = time_ago_in_words(post.created_at)
           by
-          =post.user.email
-        %h2= link_to post.title, post
+          = post.user.email
+        %h2= post.title
         %p= post.content
