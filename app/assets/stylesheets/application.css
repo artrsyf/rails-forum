@@ -159,7 +159,7 @@ body{
 .simple_form{
    height: 100%;
 }
-.registations_head{
+.registrations_head{
    height: 20%;
    display: flex;
    flex-direction: column;
@@ -173,6 +173,13 @@ body{
    justify-content: center;
    min-height: 55%;
 }
+.form-inputs_reset_password{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   min-height: 35%
+}
 
 .user_password{
    padding-top: 10px;
@@ -184,6 +191,22 @@ body{
 }
 
 .user_email{
+   padding-top: 10px;
+   padding-bottom: 10px;
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+.user_name{
+   padding-top: 10px;
+   padding-bottom: 10px;
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+.user_password_confirmation{
    padding-top: 10px;
    padding-bottom: 10px;
    position: relative;
@@ -216,23 +239,6 @@ label.email{
    transition: transform 0.2s ease-in-out;
    color: #737577;
 }
-label.password{
-   position: absolute;
-   left: 16px;
-   z-index: 1;
-   transform-origin: 0 0;
-   transition: transform 0.2s ease-in-out;
-   color: #737577;
-}
-#user_email:focus + label, #user_email:not(:placeholder-shown) + label, #user_email:hover + label{
-   transform: translateY(-0.7em) scale(0.8);
-}
-#user_password:focus + label, #user_password:not(:placeholder-shown) + label, #user_password:hover + label{
-   transform: translateY(-0.7em) scale(0.8);
-}
-::placeholder{
-   color: #f6f7f8;
-}
 #user_password{
    border-radius: 100px;
    font-size: 14px;
@@ -244,6 +250,61 @@ label.password{
    background: #f6f7f8;
    border-color: transparent;
    outline: 0;
+}
+label.password{
+   position: absolute;
+   left: 16px;
+   z-index: 1;
+   transform-origin: 0 0;
+   transition: transform 0.2s ease-in-out;
+   color: #737577;
+}
+#user_name{
+   border-radius: 100px;
+   font-size: 14px;
+   font-weight: 500;
+   line-height: 18px;
+   height: 46px;
+   padding-left: 16px;
+   padding-right: 36px;
+   background: #f6f7f8;
+   border-color: transparent;
+   outline: 0; 
+}
+#user_name + label{
+   position: absolute;
+   left: 16px;
+   z-index: 1;
+   transform-origin: 0 0;
+   transition: transform 0.2s ease-in-out;
+   color: #737577;
+}
+#user_password_confirmation{
+   border-radius: 100px;
+   font-size: 14px;
+   font-weight: 500;
+   line-height: 18px;
+   height: 46px;
+   padding-left: 16px;
+   padding-right: 36px;
+   background: #f6f7f8;
+   border-color: transparent;
+   outline: 0;
+}
+#user_email:focus + label, #user_email:not(:placeholder-shown) + label, #user_email:hover + label{
+   transform: translateY(-0.7em) scale(0.8);
+}
+#user_password:focus + label, #user_password:not(:placeholder-shown) + label, #user_password:hover + label{
+   transform: translateY(-0.7em) scale(0.8);
+}
+#user_name:focus + label, #user_name:not(:placeholder-shown) + label, #user_name:hover + label{
+   transform: translateY(-0.7em) scale(0.8);
+}
+#user_password_confirmation:focus + label, #user_password_confirmation:not(:placeholder-shown) + label, #user_password_confirmation:hover + label{
+   transform: translateY(-0.7em) scale(0.8);
+}
+::placeholder{
+   color: #f6f7f8;
 }
 div.input{
    position: relative;
@@ -266,17 +327,34 @@ div.input{
    justify-content: center;
    align-items: center;
 }
+.main_log_in h2{
+   margin: 0;
+}
 .log_in_space{
    display: flex;
    flex-direction: column;
    background-color: white;
    border-radius: 10px;
    width: 20vw;
-   height: 65vh;
+   height: 55vh;
 }
-.main_log_in h2{
-   margin: 0;
+.reg_in_space{
+   display: flex;
+   flex-direction: column;
+   background-color: white;
+   border-radius: 10px;
+   width: 20vw;
+   height: 60vh;
 }
+.change_password_space{
+   display: flex;
+   flex-direction: column;
+   background-color: white;
+   border-radius: 10px;
+   width: 20vw;
+   height: 50vh;
+}
+
 .link_block{
    display: flex;
    flex-direction: row;
@@ -309,4 +387,9 @@ div.input{
 }
 .button:not(:hover){
    transition: 0.3s;
+}
+.password_reset_info{
+   word-break: break-all;
+   padding-left: 48px;
+   padding-right: 24px;
 }
