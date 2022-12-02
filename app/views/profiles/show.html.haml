@@ -1,0 +1,15 @@
+.main
+  #profile_wrapper
+    = @user_nickname
+    = @user_email
+  -#add bottom global wrapper and add inline block with friend, stettings or etc
+  #posts_wrapper_profile
+    - @user_posts.each do |post|
+      = link_to post, class: "profile_post" do
+        .post_info
+          Published at
+          = time_ago_in_words(post.created_at)
+          by
+          = post.user.email
+        %h2= post.title
+        %p= post.content
