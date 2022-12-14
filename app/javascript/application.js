@@ -2,5 +2,7 @@
 //for jquery require *
 //= require jquery
 //= require jquery_ujs
+//= require jquery.turbolinks
+//= require turbolinks
 import "@hotwired/turbo-rails"
 import "controllers"

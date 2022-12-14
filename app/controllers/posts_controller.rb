@@ -5,6 +5,8 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.all.order("created_at DESC")
+    @posted_post = params[:id]
+    # think about profile model, mb its not a necessary, there is devise model, then drop db, delete model and db:migrate
   end
 
   def new
@@ -13,6 +15,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    print @post.save
     if @post.save
       redirect_to @post
     else

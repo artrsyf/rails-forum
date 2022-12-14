@@ -15,7 +15,28 @@ eagerLoadControllersFrom("controllers", application)
 $('document').ready(function(){
     var timer = setTimeout(showNotifications, 7000)
     function showNotifications(){
-        $('.notice').hide()
-        $('.alert').hide()
-    }
-})
+        $('.notice').hide();
+        $('.alert').hide();
+    };
+});
+
+// starts working with unreloaded page (buttons click events) agter adding in gemfile and application.js jquery-turbolinks, turbolinks
+$(document).ready(function(){
+    $('.repost_button').on('click', function(){
+        var post_index = ($(this).attr('id').split('_').at(-1))
+        //alert(post_index)
+        $.ajax({
+            url: '/profiles/new_repost',
+            type: "POST",
+            dataType: "json",
+            data: {
+                 post_index: post_index,
+            },
+            complete: function(){
+                 console.log('Congrats');
+            }
+          
+          });
+    });
+});
+

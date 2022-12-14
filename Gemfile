@@ -58,6 +58,7 @@ group :development, :test do
   gem 'rails-ujs', '~> 5.1.0.beta1'
   gem 'turbolinks', '~> 2.5', '>= 2.5.3'
   gem 'simple_form', '~> 5.1'
+  gem 'jquery-turbolinks', '~> 2.1'
 end
 
 group :development do

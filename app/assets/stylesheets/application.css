@@ -103,10 +103,12 @@ body{
 }
 /*main page index*/
 .main{
-   min-height: 100%;
+   height: calc(100% - 48px);
+   min-height: calc(100% - 48px);
    width: 100%;
    padding-top: 30px;
    padding-bottom: 30px;
+   box-sizing: border-box;
 }
 #posts_wrapper{
    margin-left: auto;
@@ -166,6 +168,9 @@ body{
    border-radius: 4px;
    text-decoration: none;
 }
+button{
+   z-index: 10000;
+}
 .post{
    border: 1px solid black;
    width: 60%;
@@ -176,10 +181,21 @@ body{
    border-radius: 4px;
    text-decoration: none;
 }
+.post_active h2{
+   margin: 0;
+   padding: 20px;
+}
+.post_active p{
+   margin: 0;
+   padding: 20px;
+}
+.post_actions_bar{
+   background-color: #cccccc;
+}
 .post:link, .profile_post:link{
    color:black;
 }
-.post:visited, .profile_post:visited{
+.post:visited, .post_active:visited, .profile_post:visited{
    color:black;
 }
 .post:focus, .profile_post:focus{
