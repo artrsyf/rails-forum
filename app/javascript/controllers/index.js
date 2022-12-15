@@ -26,7 +26,7 @@ $(document).ready(function(){
         var post_index = ($(this).attr('id').split('_').at(-1))
         //alert(post_index)
         $.ajax({
-            url: '/profiles/new_repost',
+            url: '/reposts/create',
             type: "POST",
             dataType: "json",
             data: {
