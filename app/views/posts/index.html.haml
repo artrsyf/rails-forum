@@ -10,6 +10,9 @@
             by
             = post.user.email
           %h2= post.title
+          .post_image_space
+            - if post.avatar.attached?
+              = image_tag post.avatar, class: "post_image"
           %p= post.content
         .post_actions_bar
           = button_tag(type: 'submit', class: "repost_button", id: "repost_button_#{post.id}") do
