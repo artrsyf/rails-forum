@@ -14,3 +14,4 @@
         .post_actions_bar
           = button_tag(type: 'submit', class: "repost_button", id: "repost_button_#{post.id}") do
             %i{class: "icon-ok icon-white"} Repost
+          = render 'posts/upvote_link', post: post

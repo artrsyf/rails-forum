@@ -6,4 +6,5 @@ class User < ApplicationRecord
          :confirmable, :lockable, :trackable
   has_many :posts
   has_many :comments
+  acts_as_voter
 end

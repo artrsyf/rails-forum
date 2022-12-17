@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :find_post, only: [:show, :edit, :update, :destroy]
+  before_action :find_post, only: [:show, :edit, :update, :destroy, :upvote]
   skip_before_action :authenticate_user!, only: [:index] # :authenticate_user! usage for all actions wrote in base controller *
   before_action :user_abilities, only: [:edit, :update, :destroy]
 
@@ -7,6 +7,15 @@ class PostsController < ApplicationController
     @post = Post.all.order("created_at DESC")
     @posted_post = params[:id]
     # think about profile model, mb its not a necessary, there is devise model, then drop db, delete model and db:migrate
+  end
+
+  def upvote
+    if current_user.voted_up_on?(@post)
+      @post.unvote_by current_user
+    else
+      @post.upvote_by current_user
+    end
+    render 'posts/vote'
   end
 
   def new
@@ -23,9 +32,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
-    find_post
-  end
+  def show; end
 
   def edit
   end

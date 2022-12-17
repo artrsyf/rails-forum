@@ -59,6 +59,7 @@ group :development, :test do
   gem 'turbolinks', '~> 2.5', '>= 2.5.3'
   gem 'simple_form', '~> 5.1'
   gem 'jquery-turbolinks', '~> 2.1'
+  gem 'acts_as_votable'
 end
 
 group :development do

@@ -1,3 +1,4 @@
-1) Delete previous Profile table in db, it's useless, make Profile table with reference on table with reposted posts like it made with leash post - comments
-2) js turbolinks works fine, make async request with ajax for getting reposted post_index in ur controller, then with p.1 make db integrating
-3) Show reposted posts in user Profile
+1) Delete previous Profile table in db, it's useless, make Profile table with reference on table with reposted posts like it made with leash post - comments: done
+2) js turbolinks works fine, make async request with ajax for getting reposted post_index in ur controller, then with p.1 make db integrating: done, bu need to fix turbolinks
+3) Show reposted posts in user Profile: done
+4) Fix AJAX with likes and dislikes, mb problem consist in turbolinks (view rendered)
