@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :find_post, only: [:show, :edit, :update, :destroy, :upvote]
+  before_action :find_post, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index] # :authenticate_user! usage for all actions wrote in base controller *
   before_action :user_abilities, only: [:edit, :update, :destroy]
 
@@ -10,7 +10,8 @@ class PostsController < ApplicationController
   end
 
   def upvote
-    if current_user.voted_up_on?(@post)
+    @post = Post.find_by_id(params[:id])
+    if current_user.voted_up_on? @post
       @post.unvote_by current_user
     else
       @post.upvote_by current_user

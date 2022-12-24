@@ -1,9 +1,9 @@
-<%= content_tag 'div', id: "upvote-#{post.id}" do %>
-    <%= link_to upvote_post_path(post), method: :post, remote: :true do %>
-        <% if current_user && current_user.voted_up_on?(post) %>
-            unvote
-        <% else %>
-            vote!
-        <% end %>
+<%= content_tag "div", id: "upvote-#{post.id}" do %>
+  <%= button_to upvote_post_path(post), method: :post, remote: true, data: { disable_with: "voting..." } do %>
+    <% if !current_user or current_user.voted_up_on? post %>
+      unvote
+    <% else %>
+      vote!
     <% end %>
+  <% end %>
 <% end %>
