@@ -1,5 +1,20 @@
-= simple_form_for @post do |f|
-  = f.input :title
-  = f.input :content
-  = f.input :avatar, label: false
-  = f.submit
+.main_log_in.post_tools
+  .post_tools_wrapper 
+    - if (controller_name == 'posts' && action_name == 'new')
+      %h2{class: 'post_tools_wrapper_header'} Create a post
+    - elsif (controller_name == 'posts' && action_name == 'edit')
+      %h2{class: 'post_tools_wrapper_header'} Edit a post
+    - else
+      - raise 'Error. Redirect to posts form not from PostController'
+    .post_form_wraper
+      = simple_form_for @post do |f|
+        .post_form_wraper_inputs
+          = f.input :title, input_html: { class: 'form-control', placeholder: "Title" }, label: false
+          = f.input :content, input_html: { class: 'form-control', placeholder: "Text" }, label: false
+        .post_form_wraper_bottom
+          .post_form_wrapper_file
+            = f.input :avatar, input_html: { class: "form-control", id: 'posts_file_input' }, label: false
+            %input{ type: 'button', class: 'btn btn-secondary', id: 'clear_file_button', value: 'Clear' }
+          .post_form_wrapper_buttons
+            = f.submit class: 'btn btn-primary'
+            = link_to 'Cancel', :back, class: 'btn btn-outline-primary'

@@ -3,18 +3,19 @@
   #posts_wrapper
     - @post.each do |post|
       .post
-        = link_to post, class: "post_active" do
+        =link_to post, class: "post_active" do
           .post_info
             Published at
             = time_ago_in_words(post.created_at)
             by
-            = post.user.email
-          %h2= post.title
+            %object= link_to post.user.email.to_s, profile_path(post.user.id)
+          %h4{ class: 'post_title_read' }= post.title
           .post_image_space
             - if post.avatar.attached?
               = image_tag post.avatar, class: "post_image"
-          %p= post.content
+          %div{ class: 'post_content_read' }= post.content
         .post_actions_bar
-          = button_tag(type: 'submit', class: "repost_button", id: "repost_button_#{post.id}") do
-            %i{class: "icon-ok icon-white"} Repost
           = render 'posts/upvote_link', post: post
+          = button_tag(type: 'submit', class: "ico_button", id: "repost_button_#{post.id}") do
+            %i{ class: "fa fa-share fa-lg" }
+          

@@ -1,14 +1,15 @@
-#post_content  
-  %h1= @post.title
-  %p= @post.content
+.main_log_in
+  #post_content  
+    %h1= @post.title
+    %p= @post.content
 
-#comments
-  %h2= @post.comments.count
-  = render @post.comments
-  %h3= render 'comments/form'
+  #comments
+    %h2= @post.comments.count
+    = render @post.comments
+    %h3= render 'comments/form'
 
-- if current_user.id == @post.user_id # protection *
-  = link_to 'Edit', edit_post_path(@post)
-  -# delete method works only with turbo_<attribute_name>
-  = link_to 'Delete', post_path(@post), data: { turbo_method: :delete, turbo_confirm: 'Are you shure you want to delete?' }
-  = link_to 'Home', root_path
+  - if current_user.id == @post.user_id # protection *
+    = link_to 'Edit', edit_post_path(@post)
+    -# delete method works only with turbo_<attribute_name>
+    = link_to 'Delete', post_path(@post), data: { turbo_method: :delete, turbo_confirm: 'Are you shure you want to delete?' }
+    = link_to 'Home', root_path

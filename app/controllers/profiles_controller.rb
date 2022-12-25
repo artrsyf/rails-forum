@@ -7,8 +7,8 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profile.new(user_id: current_user.id, nick_name: current_user.name)
-    if @profile.save
+    @profile = Profile.new(user_id: current_user.id, nick_name: current_user.name) unless current_profile
+    if current_profile || @profile.save
       redirect_to root_path
     else
       redirect_to new_user_session_path
@@ -65,5 +65,9 @@ class ProfilesController < ApplicationController
     @user_email = User.find_by(id: params[:id]).email
     @user_posts = User.find_by(id: params[:id]).posts
     @user_reposts = find_user_reposts
+  end
+
+  def current_profile
+    Profile.find_by(user_id: current_user.id)
   end
 end

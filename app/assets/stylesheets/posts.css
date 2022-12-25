@@ -1,0 +1,193 @@
+.main{
+    height: calc(100% - 48px);
+    min-height: calc(100vh - 48px);
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    box-sizing: border-box;
+}
+#posts_wrapper{
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    max-width: 1140px;
+    width: 60%;
+    border: 1px solid #ada9a9;
+    text-align: center;
+    background-color: aliceblue;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+.post{
+    border: 1px solid black;
+    width: 60%;
+    background-color: white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #ada9a9;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.post_image_space{
+    padding-left: 30px;
+    padding-right: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.post_image{
+    display: block;
+    max-width: 100%;
+    max-height: 500px;
+}
+.post_active{
+    text-decoration: none;
+}
+.post_active h2{
+    margin: 0;
+    padding: 20px;
+}
+.post_active p{
+    margin: 0;
+    padding: 20px;
+}
+.post_actions_bar{
+    background-color: #e9e9ed;
+    display: flex;
+    flex-direction: row;
+    padding-left: 30px;
+}
+.upvote_block{
+    margin-right: 20px;
+}
+.like_comment_bar{
+    display: flex;
+    flex-direction: row;
+    width: calc(100% + 10px);
+    justify-content: space-between;
+}
+.post:link, .profile_post:link{
+    color:black;
+}
+.post:visited, .post_active:visited, .profile_post:visited{
+    color:black;
+}
+.post:focus, .profile_post:focus{
+    color:black;
+}
+.post:active, .profile_post:active{
+    color:black;
+}
+.post:hover, .profile_post:hover{
+    border: 1px solid #868686;
+    color:black;
+}
+.post_tools_wrapper{
+    width: 50%;
+    margin-top: 30px;
+}
+.post_form_wraper{
+    margin-top: 75px;
+    height: 600px;
+    background-color: aliceblue;
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ada9a9;
+}
+.post_tools{
+    justify-content: start;
+}
+.post_tools_wrapper_header{
+    padding-bottom: 5px;
+    border-bottom: 2px solid #dbdbdb;
+}
+form#new_post.simple_form.new_post, form.simple_form.edit_post{
+    width: 80%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.post_form_wraper_inputs{
+    height: 137px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.post_form_wraper_inputs .post_content{
+    margin-top: 20px;
+}
+.post_form_wraper_inputs #post_content{
+    height: 200px;
+    max-height: 400px;
+}
+.post_form_wrapper_buttons{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.post_form_wrapper_buttons input{
+    margin-right: 5px;
+}
+.post_form_wrapper_file{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.post_form_wrapper_file .post_avatar{
+    width: 85%;
+}
+.post_form_wrapper_file button{
+    width: 10%;
+}
+.ico_button{
+    outline: none;
+    border: none;
+    border-radius: 100px;
+    width: 60px;
+    background-color: transparent;
+}
+.ico_button:hover{
+    background-color: #d1d0d0;
+    transition: 0.3s;
+}
+.like_button:hover:has(i.fa.fa-heart){
+    background-color: rgb(247, 168, 168);
+}
+.ico_button:not(:hover){
+    transition: 0.3s;
+}
+i.fa.fa-heart{
+    color: rgb(250, 68, 68);
+}
+.post_info, a.post_active object a{
+    font-size: 12px;
+    color: rgb(95, 95, 95) !important;
+}
+.post_title_read{
+    margin-top: 7px;
+    text-align: left;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.post_content_read{
+    text-align: left;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    padding-bottom: 0px;
+    margin-bottom: 15px;
+}

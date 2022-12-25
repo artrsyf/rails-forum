@@ -40,3 +40,10 @@ $(document).ready(function(){
     });
 });
 
+$('#clear_file_button').on("click", function(){
+    let postFileInput = document.querySelector("#posts_file_input")
+    postFileInput.value = '';
+    let newPostFileInput = postFileInput.cloneNode( true )
+    postFileInput.replaceWith( newPostFileInput );
+    postFileInput = newPostFileInput;
+});

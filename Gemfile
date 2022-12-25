@@ -60,6 +60,8 @@ group :development, :test do
   gem 'simple_form', '~> 5.1'
   gem 'jquery-turbolinks', '~> 2.1'
   gem 'acts_as_votable'
+  gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
+  gem 'activerecord-reset-pk-sequence'
 end
 
 group :development do

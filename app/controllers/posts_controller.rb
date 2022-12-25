@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index] # :authenticate_user! usage for all actions wrote in base controller *
   before_action :user_abilities, only: [:edit, :update, :destroy]
+  before_action :check_for_cancel, only: [:edit, :update, :create]
 
   def index
     @post = Post.all.order("created_at DESC")
@@ -35,8 +36,7 @@ class PostsController < ApplicationController
 
   def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @post.update(post_params)
@@ -69,5 +69,12 @@ class PostsController < ApplicationController
   # protection *
   def user_abilities
     redirect_to root_path if @post.user_id != current_user.id
+  end
+
+  def check_for_cancel
+    if params[:commit] == 'Cancel'
+      print 1
+      redirect_to :back
+    end
   end
 end

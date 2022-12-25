@@ -6,3 +6,4 @@
 6) Refactor code
 7) Finish with profiles - add profile_pic
 8) Add message ability
+9) md fix primary keys

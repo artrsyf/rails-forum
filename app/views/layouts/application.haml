@@ -9,7 +9,6 @@
     = javascript_include_tag "jquery-3.6.1.min"
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
-
   %body
     %div.global_wrapper
       %header.main_header
@@ -22,14 +21,20 @@
             -if user_signed_in?
               =link_to '<button class = "nav_button" id = sign_out>Sign out</button>'.html_safe, destroy_user_session_path, data: { turbo_method: :delete }
             -else
-              -#some block
               =link_to '<button class = "nav_button" id = sign_in>Sign in</button>'.html_safe, new_user_session_path if (controller_name != 'sessions' && action_name != 'new') # ? *
       %div.main_header.header_clone
       .error_field
-      .message_field
-        %div.notice= notice
-        %div.alert= alert
+      -#
+        .message_field
+          %div.notice= notice
+          %div.alert= alert
       -# tabs are really important in haml *
-      
+      - if user_signed_in?
+        .side_tool_bar
+          .side_tool_bar_selector= button_to '<i class="fa fa-user-circle-o fa-lg">&nbspMy page</i>'.html_safe, profile_path(current_user.id), method: :get, class: 'side_tool_bar_button'
+          .side_tool_bar_selector= button_to '<i class="fa fa-gear fa-lg">&nbspSettings</i>'.html_safe, edit_profile_path(current_user.id), method: :get, class: 'side_tool_bar_button'
+          #messenger
+          #friends
+
       = yield
     
