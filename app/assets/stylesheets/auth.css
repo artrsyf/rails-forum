@@ -15,6 +15,12 @@
     justify-content: center;
     min-height: 55%;
 }
+input.optional{
+    width: 240px;
+}
+input#user_remember_me{
+    width: auto;
+}
 .form-inputs_reset_password{
     display: flex;
     flex-direction: column;
@@ -215,7 +221,9 @@ div.input{
     transition: 0.3s;
 }
 .password_reset_info{
-    word-break: break-all;
-    padding-left: 48px;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    padding-left: 45px;
     padding-right: 24px;
 }

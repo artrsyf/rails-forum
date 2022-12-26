@@ -47,3 +47,16 @@ $('#clear_file_button').on("click", function(){
     postFileInput.replaceWith( newPostFileInput );
     postFileInput = newPostFileInput;
 });
+
+function holdScrollBarInTheBottom(){
+    var d = document.getElementById("messages");
+    d.scrollTop = d.scrollHeight;
+}
+
+$(document).ready(holdScrollBarInTheBottom());
+
+$('#send_message_button').on("click", function(){
+    setTimeout(function(){
+        holdScrollBarInTheBottom()
+    }, 500)
+});

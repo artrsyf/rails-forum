@@ -28,7 +28,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
+gem "redis", "~> 4.0"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -62,6 +62,7 @@ group :development, :test do
   gem 'acts_as_votable'
   gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
   gem 'activerecord-reset-pk-sequence'
+  gem 'devise_lastseenable'
 end
 
 group :development do

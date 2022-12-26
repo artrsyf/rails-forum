@@ -3,7 +3,7 @@
     padding-top: 30px;
     padding-bottom: 30px;
     max-width: 1140px;
-    width: 40%;
+    width: 55%;
     border: 1px solid #ada9a9;
     text-align: center;
     background-color: aliceblue;
@@ -14,20 +14,21 @@
     z-index: 1;
     height: 600px;
     overflow-y: scroll;
+    scrollbar-width: none;
 }
 #profile_wrapper{
-    margin-left: auto;
+    margin-left: 20%;
     margin-right: auto;
     padding-top: 30px;
     padding-bottom: 30px;
     max-width: 1140px;
-    width: 60%;
+    width: 55%;
     border: 1px solid #ada9a9;
     text-align: center;
     background-color: aliceblue;
     border-radius: 10px;
     z-index: 1;
-    height: 37vh;
+    height: 18vh;
     margin-bottom: 3vh;
 }
 .profile_post{

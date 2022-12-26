@@ -2,6 +2,10 @@
   #profile_wrapper
     = @user_nickname
     = @user_email
+    - unless @profile.user_id == current_user.id
+      = form_with url: "../rooms/create", method: :post do |form|
+        = form.hidden_field :inactive_user_id, value: @user_id
+        = form.submit "Start chatting"
   -#add bottom global wrapper and add inline block with friend, stettings or etc
   #posts_wrapper_profile
     - @user_content.each do |post|

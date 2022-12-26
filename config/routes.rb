@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   get 'comments/create'
   resources :profiles
+  resources :rooms do
+    resources :messages
+  end
+  post 'rooms/create'
   post 'reposts/create'
   post 'posts_controller/index/:post_index' => 'posts_controller#index'
   devise_for :users, controllers: { registrations: 'registrations'}

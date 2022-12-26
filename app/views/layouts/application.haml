@@ -9,6 +9,16 @@
     = javascript_include_tag "jquery-3.6.1.min"
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
+    - if current_user 
+      :css
+        .msg-#{current_user.id}{
+          align-self: flex-end;
+          background-color: #0079d3;
+        }
+        .msg-#{current_user.id} > .message_user_name{
+          color: lightpink;
+        }
+
   %body
     %div.global_wrapper
       %header.main_header

@@ -73,7 +73,6 @@ class PostsController < ApplicationController
 
   def check_for_cancel
     if params[:commit] == 'Cancel'
-      print 1
       redirect_to :back
     end
   end

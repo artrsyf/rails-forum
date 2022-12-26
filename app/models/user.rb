@@ -7,4 +7,14 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
   acts_as_voter
+  scope :all_except, -> (user) { where.not(id: user) }
+  has_many :messages
+
+  def online?
+    if updated_at > 10.minutes.ago
+      'online'
+    else
+      updated_at
+    end
+  end
 end

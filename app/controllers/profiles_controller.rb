@@ -61,6 +61,7 @@ class ProfilesController < ApplicationController
   end
 
   def set_profile_content
+    @user_id = @profile.user_id
     @user_nickname = @profile.nick_name
     @user_email = User.find_by(id: params[:id]).email
     @user_posts = User.find_by(id: params[:id]).posts
