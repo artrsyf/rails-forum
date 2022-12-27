@@ -1,3 +1,3 @@
 =simple_form_for([@post, @post.comments.build]) do |f|
-  = f.input :comment
-  = f.submit
+  = f.input :comment, input_html: { class: 'form-control', placeholder: "#{t(:what_are_your_thoughts)}" }, label: false
+  = f.submit class: 'btn btn-primary', id: 'post_button_show', value: "#{t(:create_comment)}"

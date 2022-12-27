@@ -1,15 +1,28 @@
-.main_log_in
-  #post_content  
-    %h1= @post.title
-    %p= @post.content
-
-  #comments
-    %h2= @post.comments.count
-    = render @post.comments
-    %h3= render 'comments/form'
-
-  - if current_user.id == @post.user_id # protection *
-    = link_to 'Edit', edit_post_path(@post)
-    -# delete method works only with turbo_<attribute_name>
-    = link_to 'Delete', post_path(@post), data: { turbo_method: :delete, turbo_confirm: 'Are you shure you want to delete?' }
-    = link_to 'Home', root_path
+.main_post_show
+  #post_show_wrapper
+    .post_info
+      = t(:published_at)
+      = time_ago_in_words(@post.updated_at)
+      = t(:by)
+      %object= link_to Profile.find_by(user_id: @post.user).nick_name, profile_path(@post.user.id), class: 'user_reference_inactive'
+    #post_content  
+      %div{ class: 'post_title_read post_title_read_show' }= @post.title
+      %div{ class: 'post_content_read post_content_read_show' }= @post.content
+    .post_actions_bar.post_actions_bar_show
+      = render 'posts/upvote_link', post: @post
+      = button_tag(type: 'submit', class: "repost_button ico_button", id: "repost_button_#{@post.id}") do
+        %i{ class: "fa fa-share fa-lg" }
+    = render '/comments/form'
+    #comments
+      = render @post.comments
+    - if current_user.id == @post.user_id # protection *
+      %a.main_item.main_item_post{href: "javascript:void(0);", tabindex: "1"}
+        %i{ class: "fa fa-ellipsis-v fa-lg" }
+      .sub_menu.sub_menu_post
+        .list_element
+          = link_to t(:edit), edit_post_path(@post), class: 'user_reference_inactive without_underline_hover'
+        .list_element
+          -# delete method works only with turbo_<attribute_name>
+          = link_to t(:delete), post_path(@post), data: { turbo_method: :delete, turbo_confirm: 'Are you shure you want to delete?' }, class: 'user_reference_inactive without_underline_hover'
+        .list_element{ style: 'border-bottom: 0px;' }
+          = link_to t(:home), root_path, class: 'user_reference_inactive without_underline_hover'

@@ -1,6 +1,6 @@
 <div class="form-group message_form">
     <%= form_with(model: [@single_room, @message], remote: true, class: "d-flex") do |f| %>
-        <%= f.text_field :body, id: 'chat_text', class: 'form-control message_content', autocompete: 'off' %>
-        <%= f.submit data: {disable_with: false}, class: 'btn btn-primary', id: 'send_message_button' %>
+        <%= f.text_field :body, id: 'chat_text', class: 'form-control message_content', autocompete: 'off', placeholder: "#{t(:your_message)}" %>
+        <%= f.submit data: {disable_with: false}, class: 'btn btn-primary', id: 'send_message_button', value: "#{t(:send_message)}" %>
     <% end %>
 </div>

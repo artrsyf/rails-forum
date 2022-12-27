@@ -14,7 +14,7 @@ class User < ApplicationRecord
     if updated_at > 10.minutes.ago
       'online'
     else
-      updated_at
+      updated_at + 3 * 60 * 60
     end
   end
 end

@@ -7,3 +7,9 @@
 7) Finish with profiles - add profile_pic
 8) Add message ability
 9) md fix primary keys
+
+
+
+compexes
+1) ajax doesnt work with upvotes
+2) cant make js script wait for dynamic content

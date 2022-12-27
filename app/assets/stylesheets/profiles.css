@@ -16,6 +16,9 @@
     overflow-y: scroll;
     scrollbar-width: none;
 }
+#posts_wrapper_profile::-webkit-scrollbar{
+    width: 0;
+}
 #profile_wrapper{
     margin-left: 20%;
     margin-right: auto;
@@ -40,4 +43,11 @@
     border: 1px solid #ada9a9;
     border-radius: 4px;
     text-decoration: none;
+}
+.user_reference_inactive{
+    color: rgb(95, 95, 95) !important;
+    text-decoration: none;
+}
+.user_reference_inactive:hover{
+    text-decoration: underline;
 }

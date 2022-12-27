@@ -1,20 +1,20 @@
 .main_log_in.post_tools
   .post_tools_wrapper 
     - if (controller_name == 'posts' && action_name == 'new')
-      %h2{class: 'post_tools_wrapper_header'} Create a post
+      %h2{class: 'post_tools_wrapper_header'}= t(:create_a_post)
     - elsif (controller_name == 'posts' && action_name == 'edit')
-      %h2{class: 'post_tools_wrapper_header'} Edit a post
+      %h2{class: 'post_tools_wrapper_header'}= t(:edit_a_post)
     - else
       - raise 'Error. Redirect to posts form not from PostController'
     .post_form_wraper
       = simple_form_for @post do |f|
         .post_form_wraper_inputs
-          = f.input :title, input_html: { class: 'form-control', placeholder: "Title" }, label: false
-          = f.input :content, input_html: { class: 'form-control', placeholder: "Text" }, label: false
+          = f.input :title, input_html: { class: 'form-control', placeholder: "#{t(:title)}" }, label: false
+          = f.input :content, input_html: { class: 'form-control', placeholder: "#{t(:text)}" }, label: false
         .post_form_wraper_bottom
           .post_form_wrapper_file
             = f.input :avatar, input_html: { class: "form-control", id: 'posts_file_input' }, label: false
-            %input{ type: 'button', class: 'btn btn-secondary', id: 'clear_file_button', value: 'Clear' }
+            %input{ type: 'button', class: 'btn btn-secondary', id: 'clear_file_button', value: "#{t(:clear)}" }
           .post_form_wrapper_buttons
-            = f.submit class: 'btn btn-primary'
-            = link_to 'Cancel', :back, class: 'btn btn-outline-primary'
+            = f.submit class: 'btn btn-primary', value: "#{t(:create_a_post)}"
+            = link_to "#{t(:cancel)}", :back, class: 'btn btn-outline-primary'

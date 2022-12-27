@@ -1,0 +1,9 @@
+.main_log_in.post_tools
+  .post_tools_wrapper
+    %h2{class: 'post_tools_wrapper_header'}= t(:edit_reply)
+    .post_form_wraper
+      =simple_form_for([@post, @post.comments.build], html: { class: 'edit_form_comment'}) do |f|
+        .post_form_wraper_inputs
+          = f.input :comment, input_html: { class: 'form-control', placeholder: "#{t(:your_comment)}" }, label: false
+          .post_form_wrapper_buttons
+            = f.submit class: 'btn btn-primary', id: 'post_button_show', value: "#{t(:edit_comment)}"

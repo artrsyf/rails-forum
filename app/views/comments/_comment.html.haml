@@ -1,6 +1,11 @@
 .comment
-  %p= comment.comment
-  %p= comment.user.email
-  - if current_user.id == comment.user_id
-    = link_to 'Edit Reply', edit_post_comment_path(comment.post, comment) 
-    = link_to 'Delete Reply', [comment.post, comment], data: { turbo_method: :delete, turbo_confirm: 'Are you shure you want to delete?' }
+  - if comment.persisted?
+    .post_info.comment_info
+      %object= link_to Profile.find_by(user_id: @post.user).nick_name, profile_path(@post.user.id), class: 'user_reference_inactive_show'
+      •
+      = time_ago_in_words(comment.updated_at)
+    .comment_content= comment.comment
+    - if current_user.id == comment.user_id
+      = link_to "#{t(:edit_reply)}", edit_post_comment_path(comment.post, comment), class: 'user_reference_inactive_comment'
+      •
+      = link_to "#{t(:delete_reply)}", [comment.post, comment], data: { turbo_method: :delete, turbo_confirm: 'Are you shure you want to delete?' }, class: 'user_reference_inactive_comment'
