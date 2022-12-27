@@ -244,7 +244,7 @@ input#posts_file_input.file.optional.form-control, input#post_title.string.optio
     border: 1px solid #ada9a9;
     position: relative;
 }
-div.text.optional.comment_comment{
+div.text.comment_comment{
     display: flex;
     flex-direction: row;
     justify-content: center;

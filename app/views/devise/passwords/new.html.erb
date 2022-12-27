@@ -1,11 +1,11 @@
 <div class="main_log_in">
   <div class="log_in_space">  
-    <div class="registrations_head"><h2>Forgot your password?</h2></div>
+    <div class="registrations_head"><h2><%= t(:forgot_your_password) %></h2></div>
 
     <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= f.error_notification %>
 
-      <div class="password_reset_info">Tell us the email address associated with your Reddit account, and we’ll send you an email with your username. </div>
+      <div class="password_reset_info"><%= t(:reset_message) %></div>
 
       <div class="form-inputs_reset_password">
         <%= f.input :email,
@@ -15,12 +15,12 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Reset password" %>
+        <%= f.button :submit, t(:reset_password) %>
       </div>
       <div class="link_block">
-        <%= link_to "Sign up", new_registration_path(resource_name), class: 'registrations_links', style: "margin-right: 5px;" %><br />
+        <%= link_to t(:sign_up), new_registration_path(resource_name), class: 'registrations_links', style: "margin-right: 5px;" %><br />
         <span style="color: blue;">•</span>
-        <%= link_to "Log in", new_session_path(resource_name), class: 'registrations_links', style: "margin-left: 5px;" %><br />
+        <%= link_to t(:log_in), new_session_path(resource_name), class: 'registrations_links', style: "margin-left: 5px;" %><br />
       </div>
     <% end %>
   </div>

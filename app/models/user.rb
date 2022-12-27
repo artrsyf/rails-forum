@@ -1,4 +1,10 @@
 class User < ApplicationRecord
+
+  validates_presence_of :name, message: 'Name cant be empty'
+  validates :name, length: { minimum: 4, message: 'Name is very short' }
+  validates :name, format: { with: /\A[a-z]{4,10}[_]{0,1}[0-9]{0,4}\z/, message: 'Your name is incorrect' }
+  validates_uniqueness_of :name, message: 'This name already exist'
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

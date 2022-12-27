@@ -1,6 +1,6 @@
 <div class="main_log_in">
   <div class="change_password_space">
-    <div class="registrations_head"><h2>Change your password</h2></div>
+    <div class="registrations_head"><h2><%= t(:change_your_password) %></h2></div>
 
     <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
@@ -10,19 +10,19 @@
 
       <div class="form-inputs">
         <%= f.input :password,
-                    label: "New password",
+                    label: t(:new_password),
                     required: false,
                     autofocus: false,
                     hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                     input_html: { autocomplete: "new-password", placeholder: "Password" } %>
         <%= f.input :password_confirmation,
-                    label: "Confirm your new password",
+                    label: t(:confirm_your_new_password),
                     required: false,
                     input_html: { autocomplete: "new-password", placeholder: "Password_confirmation" } %>
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Change my password" %>
+        <%= f.button :submit, t(:change_my_password) %>
       </div>
     <% end %>
 

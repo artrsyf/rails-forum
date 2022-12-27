@@ -1,6 +1,6 @@
 <div class="main_log_in">  
   <div class="reg_in_space">
-    <h2 class="registrations_head">Sign up</h2>
+    <h2 class="registrations_head"><%= t(:sign_up) %></h2>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
@@ -14,23 +14,23 @@
         <%= f.input :name,
                     required: false,
                     autofocus: false,
-                    input_html: { autocomplete: "name", placeholder: "Name" } %>
+                    input_html: { autocomplete: "name", placeholder: t(:name) } %>
         <%= f.input :password,
                     required: false,
                     hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                    input_html: { autocomplete: "new-password", placeholder: "Password" } %>
+                    input_html: { autocomplete: "new-password", placeholder: t(:password) } %>
         <%= f.input :password_confirmation,
                     required: false,
-                    input_html: { autocomplete: "new-password", placeholder: "Password Confirmation" } %>
+                    input_html: { autocomplete: "new-password", placeholder: t(:password_confirmation) } %>
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Sign up" %>
+        <%= f.button :submit, t(:sign_up) %>
       </div>
 
       <div class="link_block">
-        <div style="margin-right: 5px;">Already signed up?</div>
-        <%= link_to "Log in", new_session_path(resource_name), class: 'registrations_links' %><br />
+        <div style="margin-right: 5px;"><%= t(:already_signed_up) %></div>
+        <%= link_to t(:log_in), new_session_path(resource_name), class: 'registrations_links' %><br />
       </div>
     <% end %>
   </div>

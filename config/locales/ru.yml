@@ -56,10 +56,22 @@ ru:
   start_chatting: "Написать"
   your_message: "Напишите сообщение..."
   send_message: "Отправить"
-
-
-
-
+  log_in: "Вход"
+  new_to_forum: "Первый раз на форуме?"
+  forgot_your_email_or_password: "Забыли email или пароль?"
+  sign_up: "Регистрация"
+  remember_me: "Запомнить меня"
+  already_signed_up: "Уже зарегистрированы?"
+  forgot_your_password: "Забыли пароль?"
+  reset_message: "Отправьте нам ваш email адресс, связанный с вашим аккаунтом, и мы отправим вам email на ваше имя"
+  reset_password: "Поменять пароль"
+  change_your_password: "Изменение пароля"
+  change_my_password: "Изменить мой пароль"
+  new_password: "Ваш новый пароль"
+  confirm_your_new_password: "Подтвердите пароль"
+  password: "Пароль"
+  password_confirmation: "Подвердите пароль"
+  name: "Логин"
 
   ru:
   activerecord:

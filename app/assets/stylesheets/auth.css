@@ -195,6 +195,12 @@ div.input{
 .registrations_links:visited{
     color: #0000EE;
 }
+.registrations_links:hover{
+    color: #0000EE;
+}
+.registrations_links{
+    color: #0000EE;
+}
 .form-actions{
     display: flex;
     flex-direction: column;

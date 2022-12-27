@@ -5,9 +5,9 @@
       .post
         =link_to post, class: "post_active" do
           .post_info
-            Published at
+            #{t(:published_at)}
             = time_ago_in_words(post.updated_at)
-            by
+            #{t(:by)}
             %object= link_to Profile.find_by(user_id: post.user).nick_name, profile_path(post.user.id), class: 'user_reference_inactive'
           %h4{ class: 'post_title_read' }= post.title
           .post_image_space

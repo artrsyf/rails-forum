@@ -5,7 +5,7 @@
     - elsif (controller_name == 'posts' && action_name == 'edit')
       %h2{class: 'post_tools_wrapper_header'}= t(:edit_a_post)
     - else
-      - raise 'Error. Redirect to posts form not from PostController'
+      - #raise 'Error. Redirect to posts form not from PostController'
     .post_form_wraper
       = simple_form_for @post do |f|
         .post_form_wraper_inputs

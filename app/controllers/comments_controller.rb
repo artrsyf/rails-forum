@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to post_path(@post)
     else
-      render 'new'
+      render 'new' if @comment.comment.presence
     end
   end
 

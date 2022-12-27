@@ -63,6 +63,7 @@ group :development, :test do
   gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
   gem 'activerecord-reset-pk-sequence'
   gem 'devise_lastseenable'
+  gem 'rspec-rails', '~> 6.0.0'
 end
 
 group :development do
