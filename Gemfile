@@ -64,6 +64,7 @@ group :development, :test do
   gem 'activerecord-reset-pk-sequence'
   gem 'devise_lastseenable'
   gem 'rspec-rails', '~> 6.0.0'
+  gem 'ffi'
 end
 
 group :development do
