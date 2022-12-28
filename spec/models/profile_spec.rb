@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Profile, type: :model do
   before do
     User.delete_all
-    Profile.delete_all
+    #Profile.delete_all
     test_user = User.create(email: 'example1@example.com', password: 'example1', name: 'example1')
   end
 
