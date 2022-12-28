@@ -5,7 +5,7 @@ RSpec.describe Post, type: :model do
   before do
     User.delete_all
     Post.delete_all
-    test_user = User.new(email: "example1@example.com", password: "example1", name: "example1")
+    test_user = User.new(email: 'example1@example.com', password: 'example1', name: 'example1')
     test_user.skip_confirmation!
     test_user.save
   end
@@ -15,7 +15,6 @@ RSpec.describe Post, type: :model do
                           1content1content1content1content1' }
 
   describe 'correct post creating' do
-    
     it 'should successfully create post' do
       post = Post.new(user_id: User.first.id, title: post_title, content: post_content)
       post.avatar.attach(io: File.open("#{Rails.root}/local_storage/png_example.png"), filename: 'png_example.png', content_type: 'image/png')

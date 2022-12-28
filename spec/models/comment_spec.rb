@@ -4,7 +4,7 @@ RSpec.describe Comment, type: :model do
   before do
     User.delete_all
     Post.delete_all
-    test_user = User.new(email: "example1@example.com", password: "example1", name: "example1")
+    test_user = User.new(email: 'example1@example.com', password: 'example1', name: 'example1')
     test_user.skip_confirmation!
     test_user.save
     post_title = 'example1example1example1example1example1example1'
@@ -13,7 +13,7 @@ RSpec.describe Comment, type: :model do
     Post.create(user_id: User.first.id, title: post_title, content: post_content)
   end
 
-  describe 'creating comment accordint to all validations' do
+  describe 'creating comment according to all validations' do
     it 'should pass validation and create comment' do
       comment = Comment.new(post_id: Post.first.id, user_id: User.first.id, comment: 'comment1')
       comment.save

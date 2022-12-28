@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   before do
     User.delete_all
-    Post.delete_all
   end
 
   describe 'correct registration' do
