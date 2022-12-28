@@ -8,6 +8,9 @@
     #post_content  
       %div{ class: 'post_title_read post_title_read_show' }= @post.title
       %div{ class: 'post_content_read post_content_read_show' }= @post.content
+    .post_image_space
+      - if @post.avatar.attached?
+        = image_tag @post.avatar, class: "post_image"
     .post_actions_bar.post_actions_bar_show
       = render 'posts/upvote_link', post: @post
       = button_tag(type: 'submit', class: "repost_button ico_button", id: "repost_button_#{@post.id}") do

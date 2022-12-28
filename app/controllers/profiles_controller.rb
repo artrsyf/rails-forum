@@ -62,6 +62,8 @@ class ProfilesController < ApplicationController
 
   def set_profile_content
     @user_id = @profile.user_id
+    @this_user = User.find_by(id: @user_id)
+    @this_profile = Profile.find_by(user_id: @user_id)
     @user_nickname = @profile.nick_name
     @user_email = User.find_by(id: params[:id]).email
     @user_posts = User.find_by(id: params[:id]).posts
@@ -70,5 +72,9 @@ class ProfilesController < ApplicationController
 
   def current_profile
     Profile.find_by(user_id: current_user.id)
+  end
+
+  def profile_params
+    reqyire(:profile).permit(:nickname, :avatar)
   end
 end

@@ -6,4 +6,5 @@ class Profile < ApplicationRecord
   validates :nick_name, format: {with: /\A[a-z]{4,10}[_]{0,1}[0-9]{0,4}\z/, message: 'Your nick_name is incorrect' }
 
   has_many :reposts
+  has_one_attached :avatar
 end

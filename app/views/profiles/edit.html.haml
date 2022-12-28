@@ -1,5 +1,11 @@
-%h1 Edit Reply
-= @profile
-= simple_form_for @profile do |f|
-  = f.input :nick_name
-  = f.submit
+.edit_profile_global_wrapper
+  .edit_profile_wrapper
+    %h2{class: 'edit_profile_header'} Edit Profile
+    .edit_profile_form_wrapper
+      = simple_form_for @profile do |f|
+        = f.input :nick_name, input_html: { class: 'form-control', placeholder: "#{t(:qw)}" }, label: false
+        .avatar_pick
+          = f.input :avatar, input_html: { class: "form-control", id: 'profile_file_input' }, label: false
+          %input{ type: 'button', class: 'btn btn-secondary', id: 'clear_file_profile_button', value: "#{t(:clear)}" }
+        = f.submit class: 'btn btn-primary', value: "#{t(:create_a_post)}"
+        = link_to "#{t(:cancel)}", :back, class: 'btn btn-outline-primary'
