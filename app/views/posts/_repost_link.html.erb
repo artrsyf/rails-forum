@@ -1,0 +1,47 @@
+<div class="repost_modal">
+    <% if is_open %>
+        <style>
+            body{
+            overflow-y: hidden;
+            }
+        </style>
+
+        <div class="repost_modal_wrapper">
+            <div class="main_log_in">
+                <div class="repost_form">
+                    <div class="repost_modal_top_panel">
+                        <div class="repost_modal_cancel_header">Share</div>
+                        <%= button_to posts_repost_url, class: 'ico_default_button repost_modal_cancel_button' do %>
+                            <i class="fa fa-close fa-lg"></i>
+                        <% end %>
+                    </div>
+
+                    <%= form_with url: reposts_create_path, method: :post, class: 'repost_modal_input_form' do |form| %>
+                        <div class="repost_modal_checkbox_panel">
+                            <div class="my_page_choice form-control">
+                                <%= form.radio_button :repost_location, 'page_repost', class: 'form-check-input' %>
+                                <%= form.label :page_repost, 'On my page', class: 'form-check-label' %>
+                            </div>
+
+                            <div class="personal_message_choice form-control">
+                                <%= form.radio_button :repost_location, 'message_repost', class: 'form-check-input' %>
+                                <%= form.label :message_repost, "In a personal message" %>
+                            </div>
+                        </div>
+
+                        <div class="repost_modal_text_panel">
+                            <div>Your message:</div>
+                            <%= form.text_area :repost_text, class: 'form-control' %>
+                        </div>
+
+                        <div class="repost_modal_bottom_panel">
+                            <%= form.hidden_field :post_index, value: post_index %>
+                            <%= form.submit 'Share a record', class: 'btn btn-primary' %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    <% else %>
+    <% end %>
+</div>

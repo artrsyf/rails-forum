@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       post 'upvote', to: 'posts#upvote'
     end
   end
-
+  post 'posts/repost'
   root 'posts#index'
   # Defines the root path route ("/")
   # root "articles#index"

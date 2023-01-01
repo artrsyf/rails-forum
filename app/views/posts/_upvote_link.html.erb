@@ -1,13 +1,13 @@
 <%= content_tag "div", class: "upvote_block", id: "upvote-#{post.id}" do %>
   <div class="like_comment_bar">
-    <%= button_to upvote_post_path(post), method: :post, class: 'ico_button like_button', remote: true do %>
+    <%= button_to upvote_post_path(post), method: :post, class: 'ico_button ico_button_active_background like_button', remote: true do %>
       <% if !current_user or !current_user.voted_up_on? post %>
         <i class="fa fa-heart-o fa-lg" aria-hidden="true">&nbsp<%= post.get_likes.size %></i>
       <% else %>
         <i class="fa fa-heart fa-lg" aria-hidden="true">&nbsp<%= post.get_likes.size %></i>
       <% end %>
     <% end %>
-    <%= button_to post_path(post), method: :get, class: 'ico_button' do %>
+    <%= button_to post_path(post), method: :get, class: 'ico_button ico_button_active_background' do %>
       <i class="fa fa-comment fa-lg" aria-hidden="true">&nbsp<%= post.comments.count %></i>
     <% end %>
   </div>

@@ -21,23 +21,24 @@ $('document').ready(function(){
 });
 
 // starts working with unreloaded page (buttons click events) agter adding in gemfile and application.js jquery-turbolinks, turbolinks
-$(document).ready(function(){
-    $('.repost_button').on('click', function(){
-        var post_index = ($(this).attr('id').split('_').at(-1))
-        $.ajax({
-            url: '/reposts/create',
-            type: "POST",
-            dataType: "json",
-            data: {
-                 post_index: post_index,
-            },
-            complete: function(){
-                 console.log('Congrats');
-            }
+// $(document).ready(function(){
+//     $('.repost_button').on('click', function(){
+//         var post_index = ($(this).attr('id').split('_').at(-1))
+//         $.ajax({
+//             url: '/reposts/create',
+//             type: "POST",
+//             dataType: "json",
+//             data: {
+//                  post_index: post_index,
+//             },
+//             complete: function(){
+//                  console.log('Congrats');
+//             }
           
-          });
-    });
-});
+//           });
+//     });
+// });
+
 
 $('#clear_file_button').on("click", function(){
     let postFileInput = document.querySelector("#posts_file_input")
@@ -71,8 +72,7 @@ $('#send_message_button').on("click", function(){
         let newPostFileInput = postFileInput.cloneNode( true )
         postFileInput.replaceWith( newPostFileInput );
         postFileInput = newPostFileInput;
-    }, 700)
-    
+    }, 700)  
 });
 
 // function waitForElm(selector) {

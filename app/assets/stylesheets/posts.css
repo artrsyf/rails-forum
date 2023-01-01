@@ -116,6 +116,9 @@
 .post_tools{
     justify-content: start;
 }
+.repost_button{
+    z-index: auto;
+}
 .post_tools_wrapper_header{
     padding-bottom: 5px;
     border-bottom: 2px solid #dbdbdb;
@@ -159,14 +162,18 @@ form#new_post.simple_form.new_post, form.simple_form.edit_post, form.edit_form_c
 .post_form_wrapper_file button{
     width: 10%;
 }
-.ico_button{
+.ico_button, .ico_default_button{
     outline: none;
     border: none;
     border-radius: 100px;
     width: 60px;
     background-color: transparent;
 }
-.ico_button:hover{
+.ico_default_button{
+    width: auto;
+    padding: 0;
+}
+.ico_button_active_background:hover{
     background-color: #d1d0d0;
     transition: 0.3s;
 }

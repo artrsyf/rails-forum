@@ -1,4 +1,5 @@
 //%div{id: 'main_page_name'} Posts
+%div{id: "repost_modal"}
 .main
   #posts_wrapper
     - @post.each do |post|
@@ -16,6 +17,7 @@
           %div{ class: 'post_content_read' }= post.content
         .post_actions_bar
           = render 'posts/upvote_link', post: post
-          = button_tag(type: 'submit', class: "repost_button ico_button", id: "repost_button_#{post.id}") do
+          =button_to posts_repost_path, params: { is_open: true, post_id: post.id}, type: 'submit', class: 'repost_button ico_button ico_button_active_background', id: "repost_button_#{post.id}" do
             %i{ class: "fa fa-share fa-lg" }
+          
           

@@ -46,7 +46,7 @@ class ProfilesController < ApplicationController
     user_reposts = []
     if @profile
       @user_reposts_reference = @profile.reposts
-      @user_reposts_reference.each do |repost_reference|
+      @user_reposts_reference.reject { |repost_reference| repost_reference.location == 'message_repost' }.each do |repost_reference|
         repost_id = repost_reference.repost_id
         if (reposted_post = Post.find_by(id: repost_id))
           reposted_post.created_at = repost_reference.created_at

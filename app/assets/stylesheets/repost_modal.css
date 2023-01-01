@@ -1,0 +1,73 @@
+.repost_modal_wrapper{
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+#repost_modal{
+    max-height: calc(100vh - 48px);
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+}
+.repost_form{
+    background-color: white;
+    min-height: 48%;
+    height: 60%;
+    width: 25%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.repost_modal_top_panel{
+    background-color: #e9e9ed;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.repost_modal_cancel_header{
+    flex-grow: 1;
+    font-size: 18px;
+}
+.repost_modal_cancel_button:hover > i{
+    color: rgb(75, 75, 75) !important;
+}
+.repost_modal_input_form{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.repost_modal_bottom_panel{
+    /* margin-top: auto;
+    margin-bottom: 20px; */
+    /* padding-left: 20px;
+    padding-right: 20px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.repost_modal_checkbox_panel{
+    display: flex;
+    flex-direction: column;
+}
+.my_page_choice{
+    margin-bottom: 10px;
+}
+.repost_modal_text_panel{
+    display: flex;
+    flex-direction: column;
+}
+#repost_text{
+    margin-top: 10px;
+    flex-grow: 1;
+    max-height: 124px;
+    min-height: 124px;
+}

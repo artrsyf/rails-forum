@@ -10,6 +10,10 @@ class PostsController < ApplicationController
     # think about profile model, mb its not a necessary, there is devise model, then drop db, delete model and db:migrate
   end
 
+  def repost
+    render 'posts/repost', locals: { is_open: params[:is_open], post_index: params[:post_id] }
+  end
+
   def upvote
     @post = Post.find_by_id(params[:id])
     if current_user.voted_up_on? @post
@@ -17,7 +21,6 @@ class PostsController < ApplicationController
     else
       @post.upvote_by current_user
     end
-    render 'posts/vote'
   end
 
   def new
