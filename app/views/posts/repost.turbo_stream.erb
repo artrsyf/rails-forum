@@ -1,1 +1,1 @@
-<%= turbo_stream.update "repost_modal", partial: 'repost_link', locals: { is_open: is_open, post_index: post_index } %>
+<%= turbo_stream.update "repost_modal", partial: 'repost_link', locals: { is_open: @is_open, post_index: @post_index, chats: @chats } %>

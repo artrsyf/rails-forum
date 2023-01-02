@@ -12,13 +12,13 @@ eagerLoadControllersFrom("controllers", application)
 
 
 // precompile the problem is solved by deleting all tmp folder, clearing public/assets and restarting text editor
-$('document').ready(function(){
-    var timer = setTimeout(showNotifications, 7000)
-    function showNotifications(){
-        $('.notice').hide();
-        $('.alert').hide();
-    };
-});
+// $('document').ready(function(){
+//     var timer = setTimeout(showNotifications, 7000)
+//     function showNotifications(){
+//         $('.notice').hide();
+//         $('.alert').hide();
+//     };
+// });
 
 // starts working with unreloaded page (buttons click events) agter adding in gemfile and application.js jquery-turbolinks, turbolinks
 // $(document).ready(function(){
@@ -40,20 +40,36 @@ $('document').ready(function(){
 // });
 
 
-$('#clear_file_button').on("click", function(){
-    let postFileInput = document.querySelector("#posts_file_input")
+function clearInputOnButtonClick(css_selector){
+    let postFileInput = document.querySelector(css_selector)
     postFileInput.value = '';
     let newPostFileInput = postFileInput.cloneNode( true )
     postFileInput.replaceWith( newPostFileInput );
     postFileInput = newPostFileInput;
+}
+
+$('#clear_file_button').on("click", function(){
+    clearInputOnButtonClick("#posts_file_input")
+});
+
+$('#clear_file_profile_button').on("click", function(){
+    clearInputOnButtonClick("#profile_file_input")
 });
 
 function holdScrollBarInTheBottom(){
-    var d = document.getElementById("messages");
-    d.scrollTop = d.scrollHeight;
+    var scroll_bar_container = document.getElementById("messages");
+    scroll_bar_container.scrollTop = scroll_bar_container.scrollHeight;
 }
 
 // for messenger part
+
+$(document).ready(function(){
+    $('#send_message_button').on("click", function(){
+        setTimeout(function(){
+            clearInputOnButtonClick("#chat_text")
+        }, 700)
+    });
+})
 
 $(document).ready(holdScrollBarInTheBottom());
 
@@ -64,17 +80,6 @@ $(document).ready(function(){
         }, 700)
     });
 })
-
-$('#send_message_button').on("click", function(){
-    setTimeout(function(){
-        let postFileInput = document.querySelector("#chat_text")
-        postFileInput.value = '';
-        let newPostFileInput = postFileInput.cloneNode( true )
-        postFileInput.replaceWith( newPostFileInput );
-        postFileInput = newPostFileInput;
-    }, 700)  
-});
-
 // function waitForElm(selector) {
 //     return new Promise(resolve => {
 //         if (document.querySelector(selector)) {

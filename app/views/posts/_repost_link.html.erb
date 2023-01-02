@@ -29,6 +29,13 @@
                             </div>
                         </div>
 
+                        <div class="recipient_choice">
+                            <input type="search">
+                            <div class="recipient list">
+                                <%= chats %>
+                            </div>
+                        </div>
+
                         <div class="repost_modal_text_panel">
                             <div>Your message:</div>
                             <%= form.text_area :repost_text, class: 'form-control' %>

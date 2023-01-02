@@ -11,7 +11,9 @@ class PostsController < ApplicationController
   end
 
   def repost
-    render 'posts/repost', locals: { is_open: params[:is_open], post_index: params[:post_id] }
+    @is_open = params[:is_open]
+    @post_index = params[:post_id]
+    @chats = current_user_chats
   end
 
   def upvote
@@ -78,5 +80,15 @@ class PostsController < ApplicationController
     if params[:commit] == 'Cancel'
       redirect_to :back
     end
+  end
+
+  def current_user_chats
+    @current_user_profile = Profile.find_by(user_id: current_user.id)
+    @room_numbers = []
+    Room.all.each do |room_reference|
+      @room_numbers.push(room_reference.id) if ActiveSupport::JSON.decode(room_reference.room_users).to_a.map { |user_hash| user_hash[1] }.include?(current_user.name)
+    end
+    Room.find(@room_numbers)
+    #  Room.where(ActiveSupport::JSON.decode(room_users).to_a.map { |user_hash| user_hash[1] }.include?(current_user.name): true)
   end
 end
