@@ -13,7 +13,17 @@ class PostsController < ApplicationController
   def repost
     @is_open = params[:is_open]
     @post_index = params[:post_id]
-    @chats = current_user_chats
+    # @chats = current_user_chats
+    @chats_id = current_user_chats.map { |current_user_chat| current_user_chat.id }
+    @current_user_recipients = []
+    @chats_id.each do |chat_id|
+      chat_reference = Room.find_by(id: chat_id)
+      if chat_reference.name != 'dual_room'
+        @current_user_recipients.push({chat_name: chat_reference.name, chat_id: chat_reference.id})
+      else
+        @current_user_recipients.push({chat_name: find_dual_room_recipient(chat_reference), chat_id: chat_reference.id})
+      end
+    end
   end
 
   def upvote
@@ -90,5 +100,9 @@ class PostsController < ApplicationController
     end
     Room.find(@room_numbers)
     #  Room.where(ActiveSupport::JSON.decode(room_users).to_a.map { |user_hash| user_hash[1] }.include?(current_user.name): true)
+  end
+
+  def find_dual_room_recipient(chat_reference)
+    ActiveSupport::JSON.decode(chat_reference.room_users).to_a.map { |hash_array_element| hash_array_element[1] }.reject { |chat_user| chat_user == current_user.name }[0]
   end
 end

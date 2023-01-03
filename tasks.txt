@@ -1,15 +1,27 @@
+before dead line:
 1) Delete previous Profile table in db, it's useless, make Profile table with reference on table with reposted posts like it made with leash post - comments: done
 2) js turbolinks works fine, make async request with ajax for getting reposted post_index in ur controller, then with p.1 make db integrating: done, but need to fix turbolinks
 3) Show reposted posts in user Profile: done
-4) Fix AJAX with likes and dislikes, mb problem consist in turbolinks (view rendered)
-5) Add AJAX delete function for post image in edit path
+4) Fix AJAX with likes and dislikes, mb problem consist in turbolinks (view rendered)L done
+5) Add AJAX delete function for post image in edit path: done
 6) Refactor code
-7) Finish with profiles - add profile_pic
-8) Add message ability
-9) md fix primary keys
+7) Finish with profiles - add profile_pic: done
+8) Add message ability: done
+9) mb fix primary keys
 
 
 
-compexes
-1) ajax doesnt work with upvotes
-2) cant make js script wait for dynamic content
+complexes:
+1) ajax doesnt work with upvotes: done
+2) cant make js script wait for dynamic content - removed: done
+
+repost_modal_taskes:
+1) Need to refactor code in these places:
+    1. Make post request and call save action in messages controller for creating new message with repost, realisation in reposts controller looks bad
+    2. Post variable declaration is in _message.html.haml, it' s bad, because logic should be in controller, but still didn' t find another place for declaration
+2) Think about some possible bugs and validations
+3) Make search for choosing place to repost
+4) Make styles for modal repost window (checkboxes) and for repost into message
+
+messenger:
+1) In rooms controller show action think about redirecting on yet existing room with current_user; protection for dual_room works

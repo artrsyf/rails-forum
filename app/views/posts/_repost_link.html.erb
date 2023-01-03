@@ -24,15 +24,22 @@
                             </div>
 
                             <div class="personal_message_choice form-control">
-                                <%= form.radio_button :repost_location, 'message_repost', class: 'form-check-input' %>
+                                <%= form.radio_button :repost_location, 'message_repost', class: 'form-check-input', id: 'message_repost_radio' %>
                                 <%= form.label :message_repost, "In a personal message" %>
-                            </div>
-                        </div>
 
-                        <div class="recipient_choice">
-                            <input type="search">
-                            <div class="recipient list">
-                                <%= chats %>
+                                <div class="recipient_choice recipient_choice_visible">
+                                    <input type="search" class="repost_recipient_search">
+                                    
+                                    <div class="recipient_list">
+                                        <% recipients.each do |recipient| %>
+                                            <%= form.check_box :recipients, {multiple: true}, "#{recipient[:chat_id]}", class: 'recipient_repost_radio' %>
+                                            <%= form.label :recipient, "#{recipient[:chat_name]}", class: 'form-check-label' %>
+                                        <% end %>
+                                    </div>
+                                </div>
+
+
+
                             </div>
                         </div>
 

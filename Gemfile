@@ -65,7 +65,6 @@ group :development, :test do
   gem 'devise_lastseenable'
   gem 'rspec-rails', '~> 6.0.0'
   gem 'ffi'
-  gem 'rails_admin', '~> 3.0'
 end
 
 group :development do

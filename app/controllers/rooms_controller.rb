@@ -11,11 +11,15 @@ class RoomsController < ApplicationController
     @message = Message.new
     @messages = @single_room.messages.order(created_at: :asc)
     @room_users = ActiveSupport::JSON.decode(@single_room.room_users)
-    @inactive_user_name = @room_users['user1']
-    @inactive_user_name = @room_users['user2'] if @inactive_user_name == current_user.name
-    @inactive_user = User.find_by(name: @inactive_user_name)
-    @inactive_user_last_seen = @inactive_user.last_seen
-    render 'index'
+    if @room_users.to_a.map {|user_hash| user_hash[1]}.include? current_user.name
+      @inactive_user_name = @room_users['user1']
+      @inactive_user_name = @room_users['user2'] if @inactive_user_name == current_user.name
+      @inactive_user = User.find_by(name: @inactive_user_name)
+      @inactive_user_last_seen = @inactive_user.last_seen
+      render 'index'
+    else
+      redirect_to root_path # think about redirecting to own room
+    end
   end
 
   def create
@@ -26,7 +30,7 @@ class RoomsController < ApplicationController
       if @new_room.save
         redirect_to @new_room
       else
-        raise 'Error. Room broken'
+        raise 'Error. Room is broken'
       end
     end
   end

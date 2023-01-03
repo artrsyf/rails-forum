@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'comments/create'
   resources :profiles
   resources :rooms do
@@ -19,6 +18,7 @@ Rails.application.routes.draw do
   end
   post 'posts/repost'
   root 'posts#index'
+  post 'messages/create_repost_message'
   # Defines the root path route ("/")
   # root "articles#index"
 end

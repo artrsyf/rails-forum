@@ -71,3 +71,18 @@
     max-height: 124px;
     min-height: 124px;
 }
+.recipient_choice{
+    display: none;
+    margin-left: 12px;
+    margin-top: 12px;
+    padding-left: 12px;
+}
+#message_repost_radio:checked ~ .recipient_choice_visible{
+    display: block;
+}
+.recipient_list{
+    margin-top: 12px;
+}
+.repost_recipient_search{
+    width: 100%;
+}
