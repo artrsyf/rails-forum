@@ -26,6 +26,11 @@
           #logo
             #logo_icon= link_to show_svg('logo.svg'), root_path
             #logo_name= link_to 'Rails Forum', root_path, id: 'logo_text'
+            - I18n.available_locales.each do |locale|
+              - if I18n.locale == locale
+                = locale
+              - else 
+                = link_to locale, root_path(locale: locale)
           #buttons
             %h3
             =link_to "<button class = 'nav_button' id = new_post>#{t(:new_post)}</button>".html_safe, new_post_path if (controller_name != 'sessions' && action_name != 'new' && user_signed_in?) # ? *
